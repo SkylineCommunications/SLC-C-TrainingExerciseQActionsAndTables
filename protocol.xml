@@ -69,17 +69,21 @@ Any inquiries can be addressed to:
 			<Description>After Startup</Description>
 			<Type>dummy</Type>
 		</Param>
-		<Param id="3">
-			<Name>testButton</Name>
-			<Type>write</Type>
+		<!--Transport Streams Table-->
+		<Param id="1000">
+			<Name>transportStreams</Name>
+			<Description>Transport Streams</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="1003" type="retrieved" options=""/>
+				<ColumnOption idx="3" pid="1004" type="retrieved" options=""/>
+				<ColumnOption idx="4" pid="1005" type="retrieved" options=""/>
+			</ArrayOptions>
 			<Information>
-				<Subtext>Testing button</Subtext>
+				<Subtext>Basic data about Transport Streams</Subtext>
 			</Information>
-			<Interprete>
-				<RawType>numeric text</RawType>
-				<Type>double</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
@@ -91,15 +95,106 @@ Any inquiries can be addressed to:
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type width="110">button</Type>
-				<Discreets>
-					<Discreet>
-						<Display>Button</Display>
-						<Value>1</Value>
-					</Discreet>
-				</Discreets>
+				<Type options="tab=columns:1001|0-1002|1-1003|2-1004|3-1005|4,width:100-167-100-100-100,sort:STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
+		<Param id="1001" trending="false">
+			<Name>transportStreamsId</Name>
+			<Description>Instance (Transport Streams)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1002" trending="false">
+			<Name>transportStreamsName</Name>
+			<Description>Name of Transport Stream (Transport Streams)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is </Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1003" trending="false">
+			<Name>transportStreamsMulticast</Name>
+			<Description>Multicast (Transport Streams)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is the </Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1004" trending="false">
+			<Name>transportStreamsSourceIp</Name>
+			<Description>Source IP (Transport Streams)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is the </Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1005" trending="false">
+			<Name>transportStreamsNetworkId</Name>
+			<Description>Network Id (Transport Streams)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is </Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		
 	</Params>
 
 	<QActions>
