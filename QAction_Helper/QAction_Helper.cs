@@ -10,10 +10,17 @@ public static class Parameter
 {
 	public class Write
 	{
+		/// <summary>PID: 3 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int testbutton_3 = 3;
+		/// <summary>PID: 3 | Type: write</summary>
+		public const int testbutton = 3;
 	}
 }
 public class WriteParameters
 {
+	/// <summary>PID: 3  | Type: write | DISCREETS: Button = 1</summary>
+	public System.Object Testbutton {get { return Protocol.GetParameter(3); }set { Protocol.SetParameter(3, value); }}
 	public SLProtocolExt Protocol;
 	public WriteParameters(SLProtocolExt protocol)
 	{
@@ -23,12 +30,18 @@ public class WriteParameters
 public interface SLProtocolExt : SLProtocol
 {
 	object Afterstartup_dummy { get; set; }
+	object Testbutton_3 { get; set; }
+	object Testbutton { get; set; }
 	WriteParameters Write { get; set; }
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 {
 	/// <summary>PID: 2  | Type: dummy</summary>
 	public System.Object Afterstartup_dummy {get { return GetParameter(2); }set { SetParameter(2, value); }}
+	/// <summary>PID: 3  | Type: write | DISCREETS: Button = 1</summary>
+	public System.Object Testbutton_3 {get { return GetParameter(3); }set { SetParameter(3, value); }}
+	/// <summary>PID: 3  | Type: write | DISCREETS: Button = 1</summary>
+	public System.Object Testbutton {get { return Write.Testbutton; }set { Write.Testbutton = value; }}
 	public WriteParameters Write { get; set; }
 	public ConcreteSLProtocolExt()
 	{
