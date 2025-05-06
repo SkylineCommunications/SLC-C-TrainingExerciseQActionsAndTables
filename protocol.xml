@@ -74,12 +74,13 @@ Any inquiries can be addressed to:
 			<Name>transportStreams</Name>
 			<Description>Transport Streams</Description>
 			<Type>array</Type>
-			<ArrayOptions index="0">
+			<ArrayOptions index="0" options=";naming=/1002">
 				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
 				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
 				<ColumnOption idx="2" pid="1003" type="retrieved" options=""/>
 				<ColumnOption idx="3" pid="1004" type="retrieved" options=""/>
 				<ColumnOption idx="4" pid="1005" type="retrieved" options=""/>
+				<ColumnOption idx="5" pid="1006" type="retrieved" options=""/>
 			</ArrayOptions>
 			<Information>
 				<Subtext>Basic data about Transport Streams</Subtext>
@@ -95,7 +96,7 @@ Any inquiries can be addressed to:
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:1001|0-1002|1-1003|2-1004|3-1005|4,width:100-167-100-100-100,sort:STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:1001|0-1002|1-1003|2-1004|3-1005|4-1006|5,width:100-167-100-100-100-186,sort:STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="1001" trending="false">
@@ -103,7 +104,7 @@ Any inquiries can be addressed to:
 			<Description>Instance (Transport Streams)</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
+				<Subtext>This is the key used to identify the table entries.</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -119,10 +120,10 @@ Any inquiries can be addressed to:
 		</Param>
 		<Param id="1002" trending="false">
 			<Name>transportStreamsName</Name>
-			<Description>Name of Transport Stream (Transport Streams)</Description>
+			<Description>Name (Transport Streams)</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>This is </Subtext>
+				<Subtext>This is the Name of Transport Stream</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -141,7 +142,7 @@ Any inquiries can be addressed to:
 			<Description>Multicast (Transport Streams)</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>This is the </Subtext>
+				<Subtext>This is an address for sending Internet Protocol messages to a group of interested recipients.</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -160,7 +161,7 @@ Any inquiries can be addressed to:
 			<Description>Source IP (Transport Streams)</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>This is the </Subtext>
+				<Subtext>This is the source identifier.</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -179,7 +180,7 @@ Any inquiries can be addressed to:
 			<Description>Network Id (Transport Streams)</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>This is </Subtext>
+				<Subtext>This is the newtork identifier.</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -193,8 +194,149 @@ Any inquiries can be addressed to:
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		
-		
+		<Param id="1006" trending="false">
+			<Name>transportStreamsLastUpdate</Name>
+			<Description>Last Update (Transport Streams)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is the time the trasnsport stream was last updated.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<!--Services Table-->
+		<Param id="2000">
+			<Name>servicesTable</Name>
+			<Description>Services</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0" options=";naming=/2002">
+				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="2003" type="retrieved" options=""/>
+				<ColumnOption idx="3" pid="2004" type="retrieved" options=""/>
+				<ColumnOption idx="4" pid="2005" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Information>
+				<Subtext>Contains all services that are available.</Subtext>
+			</Information>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:2001|0-2002|1-2003|2-2004|3-2005|4,width:100-100-100-100-129,sort:STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="2001" trending="false">
+			<Name>servicesTableId</Name>
+			<Description>Instance Id (Services Table)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is the key used to identify the table entries.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2002" trending="false">
+			<Name>servicesTableName</Name>
+			<Description>Name (Services Table)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is name of the service.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2003" trending="false">
+			<Name>servicesTableType</Name>
+			<Description>Type (Services Table)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is type of the service.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2004" trending="false">
+			<Name>servicesTableProvider</Name>
+			<Description>Provider (Services Table)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is the provider of the service.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2005" trending="false">
+			<Name>servicesTableLastUpdate</Name>
+			<Description>Last Update (Services Table)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is the time the service was last updated.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
 	</Params>
 
 	<QActions>
