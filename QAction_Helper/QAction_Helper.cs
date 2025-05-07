@@ -10,6 +10,11 @@ public static class Parameter
 {
 	public class Write
 	{
+		/// <summary>PID: 3 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int polldatabtn_3 = 3;
+		/// <summary>PID: 3 | Type: write</summary>
+		public const int polldatabtn = 3;
 	}
 	public class Transportstreams
 	{
@@ -160,6 +165,8 @@ public static class Parameter
 }
 public class WriteParameters
 {
+	/// <summary>PID: 3  | Type: write | DISCREETS: Poll Data = 1</summary>
+	public System.Object Polldatabtn {get { return Protocol.GetParameter(3); }set { Protocol.SetParameter(3, value); }}
 	public SLProtocolExt Protocol;
 	public WriteParameters(SLProtocolExt protocol)
 	{
@@ -173,6 +180,8 @@ public interface SLProtocolExt : SLProtocol
 	/// <summary>PID: 2000</summary>
 	ServicestableQActionTable servicestable { get; set; }
 	object Afterstartup_dummy { get; set; }
+	object Polldatabtn_3 { get; set; }
+	object Polldatabtn { get; set; }
 	object Transportstreamsid_1001 { get; set; }
 	object Transportstreamsid { get; set; }
 	object Transportstreamsname_1002 { get; set; }
@@ -205,6 +214,10 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public ServicestableQActionTable servicestable { get; set; }
 	/// <summary>PID: 2  | Type: dummy</summary>
 	public System.Object Afterstartup_dummy {get { return GetParameter(2); }set { SetParameter(2, value); }}
+	/// <summary>PID: 3  | Type: write | DISCREETS: Poll Data = 1</summary>
+	public System.Object Polldatabtn_3 {get { return GetParameter(3); }set { SetParameter(3, value); }}
+	/// <summary>PID: 3  | Type: write | DISCREETS: Poll Data = 1</summary>
+	public System.Object Polldatabtn {get { return Write.Polldatabtn; }set { Write.Polldatabtn = value; }}
 	/// <summary>PID: 1001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Transportstreamsid_1001 {get { return GetParameter(1001); }set { SetParameter(1001, value); }}
