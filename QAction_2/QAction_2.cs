@@ -18,7 +18,6 @@ public static class QAction
     {
         try
         {
-
         }
         catch (Exception ex)
         {
