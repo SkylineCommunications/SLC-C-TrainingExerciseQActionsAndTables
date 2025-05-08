@@ -253,7 +253,7 @@ Any inquiries can be addressed to:
 				<Decimals>8</Decimals>
 			</Display>
 			<Measurement>
-				<Type options="datatime">number</Type>
+				<Type options="datetime">number</Type>
 			</Measurement>
 		</Param>
 		<!--Services Table-->
@@ -380,7 +380,7 @@ Any inquiries can be addressed to:
 				<Decimals>8</Decimals>
 			</Display>
 			<Measurement>
-				<Type options="datatime">number</Type>
+				<Type options="datetime">number</Type>
 			</Measurement>
 		</Param>
 		<Param id="2006" trending="false">

@@ -5,6 +5,7 @@ using System.Text;
 using Newtonsoft.Json;
 using QAction_1;
 using Skyline.DataMiner.Scripting;
+using System.Globalization;
 
 /// <summary>
 /// DataMiner QAction Class: Poll Data.
@@ -39,8 +40,9 @@ public static class QAction
 							services.Add(FillServicesTable(service, tstream.Id));
 						}
 					}
-
-					protocol.transportstreams.FillArray(transportStreams.ToArray());
+					protocol.Log(Convert.ToString(DateTime.Now));
+                    protocol.Log(Convert.ToString(DateTime.Now.ToOADate()));
+                    protocol.transportstreams.FillArray(transportStreams.ToArray());
 					protocol.services.FillArray(services.ToArray());
 				}
 			}
