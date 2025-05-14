@@ -5,7 +5,6 @@ using System.Text;
 using Newtonsoft.Json;
 using QAction_1;
 using Skyline.DataMiner.Scripting;
-using System.Globalization;
 
 /// <summary>
 /// DataMiner QAction Class: Poll Data.
@@ -24,7 +23,7 @@ public static class QAction
 
 			if (File.Exists(path))
 			{
-				var data = File.ReadAllText(path, Encoding.UTF8);
+				var data = File.ReadAllText(path);
 				var transportStreamsObject = JsonConvert.DeserializeObject<TransportStreamsObject>(data);
 
 				List<TransportstreamsQActionRow> transportStreams = new List<TransportstreamsQActionRow>();
@@ -34,15 +33,14 @@ public static class QAction
 				{
 					foreach (var tstream in transportStreamsObject.TransportStreams)
 					{
-						transportStreams.Add(FillTransportStreamsTable(tstream));
+						transportStreams.Add(CreateTransportStreamsTableEntries(tstream));
 						foreach (var service in tstream.Services)
 						{
-							services.Add(FillServicesTable(service, tstream.Id));
+							services.Add(CreateServicesTableEntries(service, tstream.Id));
 						}
-					}
-					protocol.Log(Convert.ToString(DateTime.Now));
-                    protocol.Log(Convert.ToString(DateTime.Now.ToOADate()));
-                    protocol.transportstreams.FillArray(transportStreams.ToArray());
+                    }
+
+					protocol.transportstreams.FillArray(transportStreams.ToArray());
 					protocol.services.FillArray(services.ToArray());
 				}
 			}
@@ -53,7 +51,7 @@ public static class QAction
 		}
 	}
 
-	public static TransportstreamsQActionRow FillTransportStreamsTable(TransportStreams tstream)
+	public static TransportstreamsQActionRow CreateTransportStreamsTableEntries(TransportStreams tstream)
 	{
 		var newTransportStreamRow = new TransportstreamsQActionRow
 		{
@@ -68,16 +66,16 @@ public static class QAction
 		return newTransportStreamRow;
 	}
 
-	public static ServicesQActionRow FillServicesTable(ServiceObject service, int ts)
+	public static ServicesQActionRow CreateServicesTableEntries(ServiceObject service, int ts)
 	{
 		var newService = new ServicesQActionRow
 		{
-			Servicesid_2001 = service.Id,
+			Servicesid_2001 = service.Id.ToString(),
 			Servicesname_2002 = service.Name,
 			Servicestype_2003 = service.Type,
 			Servicesprovider_2004 = service.Provider,
 			Serviceslastupdate_2005 = DateTime.Now.ToOADate(),
-			Servicestransportstreamid_2006 = ts,
+			Servicestransportstreamid_2006 = ts.ToString(),
 		};
 
 		return newService;

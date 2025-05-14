@@ -21,9 +21,6 @@
         [JsonProperty(propertyName: "network_id")]
         public int NetworkId { get; set; }
 
-        [JsonProperty(propertyName: "last_update")]
-        public DateTime LastUpdate { get; set; }
-
         [JsonProperty(propertyName: "services")]
         public List<ServiceObject> Services { get; set; }
     }
